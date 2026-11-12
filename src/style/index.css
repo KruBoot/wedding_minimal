@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-warm: #faf9f6;
+  --color-ivory: #f4f0e9;
+  --color-beige: #e8dfd2;
+  --color-taupe: #a89b8b;
+  --color-taupe-deep: #75695c; /* ใช้กับข้อความเล็ก เพื่อ contrast ผ่าน WCAG AA */
+  --color-charcoal: #292929;
+  --color-ink: #181818;
+
+  --font-serif:
+    "Cormorant Garamond", "Playfair Display", "IBM Plex Sans Thai", Georgia,
+    serif;
+  --font-sans:
+    "IBM Plex Sans Thai", "Noto Sans Thai", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    overflow-x: hidden;
+    background: var(--color-warm);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-beige);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
